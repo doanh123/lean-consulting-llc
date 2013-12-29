@@ -28,18 +28,3 @@ def index():
 @app.route('/contact')
 def index():
     return render_template('contact.html')
-
-@app.route('/help')
-def index():
-    return render_template('contact.html')
-
-@app.route('/login')
-def index():
-    return render_template('login.html')
-
-
-
-
-
-
-
