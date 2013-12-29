@@ -8,13 +8,13 @@ var Contact = function () {
 			$(document).ready(function(){
 			  map = new GMaps({
 				div: '#map',
-				lat: 40.748866,
-				lng: -73.988366
+				lat: 37.86534,
+				lng: -122.254147
 			  });
 			   var marker = map.addMarker({
-					lat: 40.748866,
-					lng: -73.988366,
-		            title: 'Loop, Inc.'
+					lat: 37.86534,
+					lng: -122.254147,
+		            title: 'Lean Consulting, LLC'
 		        });
 			});
         }
