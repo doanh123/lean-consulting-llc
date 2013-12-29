@@ -12,19 +12,3 @@ def index():
 @app.route('/home')
 def index():
     return render_template('home.html')
-
-@app.route('/aboutus')
-def index():
-    return render_template('about.html')
-
-@app.route('/services')
-def index():
-    return render_template('services.html')
-
-@app.route('/leantraining')
-def index():
-    return render_template('leantraining.html')
-
-@app.route('/contact')
-def index():
-    return render_template('contact.html')
