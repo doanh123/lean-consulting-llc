@@ -33,3 +33,6 @@ def login():
 def service():
     return render_template('service.html')
 
+@app.route('/leantraining')
+def training():
+    return render_template('leantraining.html')
