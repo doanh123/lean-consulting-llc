@@ -7,15 +7,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/home')
 def index():
-    return render_template('home.html')
+    return render_template('index.html')
 
 @app.route('/aboutus')
 def index():
     return render_template('about.html')
+
 """
 @app.route('/services')
 def index():
