@@ -28,3 +28,8 @@ def contact():
 @app.route('/login')
 def login():
     return render_template('login.html')
+
+@app.route('/services')
+def service():
+    return render_template('service.html')
+
