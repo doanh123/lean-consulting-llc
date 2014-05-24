@@ -13,7 +13,7 @@ def index():
 def index():
     return render_template('home.html')
 
-@app.route('/aboutus')
+@app.route('/about-us')
 def about():
     return render_template('about.html')
 
@@ -33,6 +33,6 @@ def login():
 def service():
     return render_template('service.html')
 
-@app.route('/leantraining')
+@app.route('/lean-training')
 def training():
     return render_template('leantraining.html')
