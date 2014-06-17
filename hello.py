@@ -20,7 +20,7 @@ def about():
 
 @app.route('/publication')
 def publication():
-    return render_template('publication.html')
+    return render_template('about.html')
 
 @app.route('/contact')
 def contact():
