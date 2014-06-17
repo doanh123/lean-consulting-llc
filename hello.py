@@ -17,6 +17,11 @@ def index():
 def about():
     return render_template('about.html')
 
+
+@app.route('/publication')
+def publication():
+    return render_template('publication.html')
+
 @app.route('/contact')
 def contact():
     return render_template('contact.html')
