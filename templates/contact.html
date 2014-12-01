@@ -25,7 +25,8 @@
     <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/leanconsulting/css/pages/page_contact.css">
     <!-- CSS Theme -->    
     <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/leanconsulting/css/themes/blue.css" id="style_color">
-    <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/leanconsulting/css/themes/headers/header1-blue.css" id="style_color-header-1">    
+    <link rel="stylesheet" href="https://s3-us-west-2.amazonaws.com/leanconsulting/css/themes/headers/header1-blue.css" id="style_color-header-1">  
+    <script src="https://cdn.firebase.com/js/client/2.0.4/firebase.js"></script>  
 </head> 
 
 <body>
@@ -199,12 +200,12 @@
 			
             <!-- Contact Form -->
                    
-                    <form class="form-horizontal" role="form" id="ajax-contact" method="post" action="http://paramountdecisions.com/contact_form" style ="">
+                    <form class="form-horizontal" style ="">
                         <div class="form-group icon">
                             <label for="name" class="col-sm-3 control-label">Full name</label>
                             <div class="col-sm-9 ">
                                 <div class="control">
-                                    <input type="text" class="form-control" id="name" placeholder="Full name" name="name" required>
+                                    <input type="text" class="form-control" id="form-name" placeholder="Full name" name="name" required>
                                     <i class="fa fa-user"></i>
                                 </div>
                             </div>
@@ -213,7 +214,7 @@
                             <label for="email" class="col-sm-3 control-label">Email</label>
                             <div class="col-sm-9 ">
                                 <div class="control">
-                                    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                                    <input type="email" class="form-control" id="form-email" placeholder="Enter email" name="email" required>
                                     <i class="fa fa-envelope"></i>
                                 </div>
                             </div>
@@ -222,19 +223,21 @@
                             <label for="Message" class="col-sm-3 control-label">Message</label>
                             <div class="col-sm-9 ">
                                 <div class="control">
-                                    <textarea class="form-control" rows="8" id="message" placeholder="Message" name="message" required></textarea>
+                                    <textarea class="form-control" rows="8" id="form-message" placeholder="Message" name="message" required></textarea>
                                     <i class="fa fa-comment"></i>
                                 </div>
                             </div>
                         </div>
+                    </form>
 
                         <div class="form-group icon">
-                            <div class="col-sm-offset-3 col-sm-9">
-                                <button type="submit" name="submit" class="btn btn-primary">
+                            <div class="col-sm-offset-3 col-sm-9"><p style="color:orange; display:none;" id="thank-you-message"> Thank you for your message. we will reply soon!</p>
+                                <button id="submit-button" class="btn btn-primary">
                                     <i class="fa fa-paper-plane-o"></i>Send Message</button>
                             </div>
                         </div>
-                    </form>
+
+                    
         </div><!--/col-md-9-->
 
 
@@ -543,5 +546,26 @@
 
   ga('create', 'UA-46623897-1', 'auto');
   ga('send', 'pageview');
+
+</script>
+
+<script>
+$('#submit-button').click(function(){
+    console.log("sending form")
+    var myFirebaseRef = new Firebase('https://paramount-stage.firebaseio.com/LeanConsultingForm');
+
+    var name = document.getElementById('form-name').value;
+     
+
+    var email = document.getElementById('form-email').value;
+
+    var message = document.getElementById('form-message').value;
+
+
+    myFirebaseRef.push({ name: name, email: email , message: message});
+
+    $('#thank-you-message').show();
+})
+
 
 </script>
